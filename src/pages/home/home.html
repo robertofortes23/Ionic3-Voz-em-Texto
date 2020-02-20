@@ -1,14 +1,14 @@
 <ion-header>
-  <ion-navbar [color]="isRecording ? 'danger' : 'primary'">
+  <ion-navbar>
     <ion-title>
-      Listen to Me
+    Inicío
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <button ion-button full (click)="getPermission()">Aceitar Permissao</button>
-  <button ion-button full (click)="startListening()">Clike aqui e fale.</button>
+  <button ion-button full (click)="getPermission()" (click)="startListening()">Clike aqui e fale.</button>
   <button ion-button full (click)="stopListening()" *ngIf="isIos()">Stop Listening</button>
 
   <ion-card>
@@ -22,8 +22,6 @@
     </ion-card-content>
   </ion-card>
   
-  <ion-option *ngFor="let p of parcelamentosArray" [value]="p.type" [selected]="p[0]" > {{ p.value}}  </ion-option>
-
   <ion-item>
     <ion-label color="primary" stacked>Stacked Label</ion-label>
     <ion-input [(ngModel)]="matches" type="text" value="{{ matches }}"></ion-input>
