@@ -10,7 +10,7 @@ import { ChangeDetectorRef } from '@angular/core';
 export class HomePage {
   matches: String[];
   isRecording = false;
-
+  
   constructor(public navCtrl: NavController,
      private speechRecognition: SpeechRecognition,
       private plt: Platform,
@@ -43,9 +43,10 @@ export class HomePage {
     this.speechRecognition.startListening().subscribe(matches => {
       this.matches = matches;
       this.cd.detectChanges();
+
     });
     this.isRecording = true;
-    console.log(this.matches)
+
   }
 
 }
