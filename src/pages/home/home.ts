@@ -43,7 +43,7 @@ export class HomePage {
     this.speechRecognition.startListening().subscribe(matches => {
       this.matches = matches;
       this.cd.detectChanges();
-
+      console.log(this.matches)
     });
     this.isRecording = true;
 
