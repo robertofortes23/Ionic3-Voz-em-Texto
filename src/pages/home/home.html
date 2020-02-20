@@ -10,21 +10,10 @@
   <button ion-button full (click)="getPermission()">Aceitar Permissao</button>
   <button ion-button full (click)="startListening()">Clike aqui e fale.</button>
   <button ion-button full (click)="stopListening()" *ngIf="isIos()">Stop Listening</button>
-
-  <ion-card>
-    <ion-card-header>Você disse...</ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let match of matches">
-          {{ matches }}
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
   
   <ion-item>
     <ion-label color="primary" stacked>Input que vai receber o Text</ion-label>
-    <ion-input [(ngModel)]="matches" type="text" value="{{ matches }}"></ion-input>
+    <ion-input [(ngModel)]="teste" type="text" value="{{ teste }}"></ion-input>
   </ion-item>
 
 </ion-content>

@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  matches: String[];
+  teste: String[];
   isRecording = false;
   
-  constructor(public navCtrl: NavController,
-     private speechRecognition: SpeechRecognition,
-      private plt: Platform,
-       private cd: ChangeDetectorRef
-      ){ }
+  constructor(
+    public navCtrl: NavController,
+    private speechRecognition: SpeechRecognition,
+    private plt: Platform,
+    )
+    { }
 
   isIos() {
     return this.plt.is('ios');
@@ -38,15 +38,14 @@ export class HomePage {
 
   startListening() {
     let options = {
-      language: 'en-US',
+      language: 'pt-BR',
+      matches: 1
     }
-    this.speechRecognition.startListening().subscribe(matches => {
-      this.matches = matches;
-      this.cd.detectChanges();
-      console.log(this.matches)
-    });
+    this.speechRecognition.startListening(options)
+    .subscribe(
+      (matches: Array<string>) => {this.teste = matches;},
+      (onerror) => console.log('error:', onerror)
+      )
     this.isRecording = true;
-
   }
-
 }
